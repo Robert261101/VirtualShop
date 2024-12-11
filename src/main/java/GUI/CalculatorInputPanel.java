@@ -179,7 +179,7 @@ public class CalculatorInputPanel {
 
                     // Adaugă dispozitivul în baza de date
                     String query = String.format("INSERT INTO calculatoare (model, pret, tip_procesor, placa_video, memorie_ram, sistem_operare, tip_stocare) " +
-                            "VALUES ('%s', %s, '%s', '%s', '%s', '%s', '%s')", model, Double.parseDouble(pret), tipProcesor, placaVideo, memorieRAM, sistemOperare, tipStocare);
+                            "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')", model, Double.parseDouble(pret), tipProcesor, placaVideo, memorieRAM, sistemOperare, tipStocare);
 
                     statement.executeUpdate(query);
                     JOptionPane.showMessageDialog(mainPanel, "Dispozitivul a fost adăugat cu succes!");
