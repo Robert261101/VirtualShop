@@ -97,7 +97,7 @@ public MonitorInputPanel() {
 
     gbc.gridx = 2;
     gbc.gridy = 2;
-    mainPanel.add(txtFldModel,gbc);
+    mainPanel.add(txtFldProducator,gbc);
 
     gbc.gridx = 2;
     gbc.gridy = 3;
@@ -295,23 +295,23 @@ public MonitorInputPanel() {
             StringBuilder query =new StringBuilder("SELECT * FROM monitoare WHERE 1=1");
 
             if(!txtFldProducator.getText().isEmpty()){
-                query.append("AND producator = ").append(txtFldProducator.getText());
+                query.append(" AND producator = '").append(txtFldProducator.getText()).append("'");
             }
 
             if(!txtFldModel.getText().isEmpty()){
-                query.append("AND model = '").append(txtFldModel.getText());
+                query.append(" AND model = '").append(txtFldModel.getText()).append("'");
             }
 
             if (!txtFldPret.getText().isEmpty()) {
-                query.append("AND pret = '").append(Double.parseDouble(txtFldPret.getText()));
+                query.append(" AND pret = '").append(Double.parseDouble(txtFldPret.getText())).append("'");
             }
 
             if(!txtFldDimensiuneDiagonala.getText().isEmpty()){
-                query.append("AND dimensiune_diagonala = '").append(Integer.parseInt(txtFldDimensiuneDiagonala.getText()));
+                query.append(" AND dimensiune_diagonala = '").append(Integer.parseInt(txtFldDimensiuneDiagonala.getText())).append("'");
             }
 
             if(!txtFldRataRefresh.getText().isEmpty()){
-                query.append("AND rata_refresh = '").append(Integer.parseInt(txtFldRataRefresh.getText()));
+                query.append(" AND rata_refresh = '").append(Integer.parseInt(txtFldRataRefresh.getText())).append("'");
             }
 
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -354,6 +354,7 @@ public MonitorInputPanel() {
             frame.dispose();
         }
     });
+
 }
     private void clearTextFields() {
         txtFldID.setText("");

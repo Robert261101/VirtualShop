@@ -131,18 +131,18 @@ public class TelevizorInputPanel {
         mainPanel.add(txtFldClasaEnergetica,gbc);
 
         gbc.gridx = 0;
-        gbc.gridy = 8;
+        gbc.gridy = 9;
         gbc.gridwidth=2;
         mainPanel.add(btnCancel,gbc);
 
         gbc.gridx = 2;
-        gbc.gridy = 8;
+        gbc.gridy = 9;
         gbc.gridwidth=2;
         mainPanel.add(btnCauta,gbc);
 
         gbc.gridx = 5;
         gbc.gridy = 0;
-        gbc.gridheight=9;
+        gbc.gridheight=10;
         mainPanel.add(scrollPane,gbc);
 
         // Încarcă datele din baza de date
@@ -311,19 +311,19 @@ public class TelevizorInputPanel {
     btnCauta.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            StringBuilder query = new StringBuilder("SELECT * FROM calculatoare WHERE 1=1");
+            StringBuilder query = new StringBuilder("SELECT * FROM televizoare WHERE 1=1");
 
             if(!txtFldProducator.getText().isEmpty()) {
-                query.append("AND producator = ").append(txtFldProducator.getText());
+                query.append(" AND producator = '").append(txtFldProducator.getText()).append("'");
             }
             if(!txtFldModel.getText().isEmpty()){
-                query.append("AND model = '").append(txtFldModel.getText()).append("'");
+                query.append(" AND model = '").append(txtFldModel.getText()).append("'");
             }
             if (!txtFldPret.getText().isEmpty()) {
                 query.append(" AND pret = '").append(Double.parseDouble(txtFldPret.getText())).append("'");
             }
             if (!txtFldDimensiuneDiagonala.getText().isEmpty()) {
-                query.append(" AND dimensiune_display = '").append(Integer.parseInt(txtFldDimensiuneDiagonala.getText())).append("'");
+                query.append(" AND dimensiune_diagonala = '").append(Integer.parseInt(txtFldDimensiuneDiagonala.getText())).append("'");
             }
             if (!txtFldTehnologieDisplay.getText().isEmpty()) {
                 query.append(" AND tehnologie_display = '").append(txtFldTehnologieDisplay.getText()).append("'");
@@ -352,7 +352,7 @@ public class TelevizorInputPanel {
                             resultSet.getString("producator"),
                             resultSet.getString("model"),
                             resultSet.getDouble("pret"),
-                            resultSet.getInt("dimensiune_display"),
+                            resultSet.getInt("dimensiune_diagonala"),
                             resultSet.getString("tehnologie_display"),
                             resultSet.getString("claritate_imagine"),
                             resultSet.getString("clasa_energetica")

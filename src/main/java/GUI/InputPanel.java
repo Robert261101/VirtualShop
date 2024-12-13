@@ -50,26 +50,54 @@ public class InputPanel extends JFrame{
         btnLaptop.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                JFrame laptopFrame = new JFrame("Laptop Input Panel");
+                setMinimumSize(new Dimension(1800, 1600));
+                setSize(2000,2000);
+                laptopFrame.setContentPane(new LaptopInputPanel().getMainPanel());
+                laptopFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                laptopFrame.pack();
+                laptopFrame.setLocationRelativeTo(null); // Poziționează fereastra în centru
+                laptopFrame.setVisible(true);
             }
         });
 
         btnMonitor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                JFrame monitorFrame = new JFrame("Monitor Input Panel");
+                setMinimumSize(new Dimension(1800, 1600));
+                setSize(2000,2000);
+                monitorFrame.setContentPane(new MonitorInputPanel().getMainPanel());
+                monitorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                monitorFrame.pack();
+                monitorFrame.setLocationRelativeTo(null); // Poziționează fereastra în centru
+                monitorFrame.setVisible(true);
             }
         });
         btnTelefon.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                JFrame telefonFrame = new JFrame("Telefon Input Panel");
+                setMinimumSize(new Dimension(1800, 1600));
+                setSize(2000,2000);
+                telefonFrame.setContentPane(new TelefonInputPanel().getMainPanel());
+                telefonFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                telefonFrame.pack();
+                telefonFrame.setLocationRelativeTo(null); // Poziționează fereastra în centru
+                telefonFrame.setVisible(true);
             }
         });
         btnTelevizor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                JFrame televizorFrame = new JFrame("Televizor Input Panel");
+                setMinimumSize(new Dimension(1800, 1600));
+                setSize(2000,2000);
+                televizorFrame.setContentPane(new TelevizorInputPanel().getMainPanel());
+                televizorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                televizorFrame.pack();
+                televizorFrame.setLocationRelativeTo(null); // Poziționează fereastra în centru
+                televizorFrame.setVisible(true);
             }
         });
     }
@@ -85,147 +113,3 @@ public class InputPanel extends JFrame{
 
     }
 }
-
-/*class CalculatorInputPanel extends JPanel {
-                    private JTextField producatorField, modelField, pretField, tipProcesorField, placaVideoField, memorieRAMField, sistemOperareField, tipStocareField;;
-                    private JTextArea resultArea;
-                    private Connection connection;
-                    private CalculatorRepository calculatorRepo;
-
-                    public CalculatorInputPanel() {
-                        setLayout(new GridLayout(0, 2));
-
-                        // Câmpuri de input
-                        add(new JLabel("Model:"));
-                        modelField = new JTextField();
-                        add(modelField);
-
-                        add(new JLabel("Preț:"));
-                        pretField = new JTextField();
-                        add(pretField);
-
-                        add(new JLabel("Tip procesor:"));
-                        tipProcesorField = new JTextField();
-                        add(tipProcesorField);
-
-                        add(new JLabel("Placa video:"));
-                        placaVideoField = new JTextField();
-                        add(placaVideoField);
-
-                        add(new JLabel("Memorie RAM:"));
-                        memorieRAMField = new JTextField();
-                        add(memorieRAMField);
-
-                        add(new JLabel("Sistem de operare:"));
-                        sistemOperareField = new JTextField();
-                        add(sistemOperareField);
-
-                        add(new JLabel("Tip stocare:"));
-                        tipStocareField = new JTextField();
-                        add(tipStocareField);
-
-                        // Butoane CRUD
-                        JButton createButton = new JButton("Create");
-                        createButton.addActionListener(new CreateAction());
-                        add(createButton);
-
-                        // ... (similar pentru Read, Update, Delete)
-
-                        // Conexiune la baza de date
-                        try {
-                            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/numele_bazei_de_date", "root", "root");
-                            calculatorRepo = new CalculatorRepository(connection);
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    class CreateAction implements ActionListener {
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-                            String model = modelField.getText();
-                            double pret = Double.parseDouble(pretField.getText());
-                            String tipProcesor= tipProcesorField.getText();
-                            String placaVideo = placaVideoField.getText();
-                            String memorieRAM = sistemOperareField.getText();
-                            String sistemOperare = sistemOperareField.getText();
-                            String tipStocare=tipStocareField.getText();
-                            LocalDate creationDate=LocalDate.now();
-                            Calculator calculator = new Calculator(model, pret, tipProcesor, placaVideo, memorieRAM, sistemOperare, tipStocare, creationDate );
-                            calculatorRepo.createCalculator(calculator);
-                            resultArea.setText("Calculator adăugat cu succes!");
-                        }
-                    }
-                }
-            }
-        });
-        btnLaptop.addActionListener(new ActionListener() {
-
-            class LaptopInputPanel extends JPanel {
-                private JTextField producatorField, modelField, pretField;
-                private JTextArea resultArea;
-                private Connection connection;
-                private LaptopRepository laptopRepo;
-
-                public LaptopInputPanel() {
-                    setLayout(new GridLayout(0, 2));
-
-                    // Câmpuri de input
-                    add(new JLabel("Producător:"));
-                    producatorField = new JTextField();
-                    add(producatorField);
-
-                    add(new JLabel("Model:"));
-                    modelField = new JTextField();
-                    add(modelField);
-
-                    add(new JLabel("Preț:"));
-                    pretField = new JTextField();
-                    add(pretField);
-
-                    // Butoane CRUD
-                    JButton createButton = new JButton("Create");
-                    createButton.addActionListener(new CreateAction());
-                    add(createButton);
-
-                    // ... (similar pentru Read, Update, Delete)
-
-                    // Conexiune la baza de date
-                    try {
-                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/numele_bazei_de_date", "utilizator", "parola");
-                        laptopRepo = new LaptopRepository(connection);
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                }
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    String producator = producatorField.getText();
-                    String model = modelField.getText();
-                    double pret = Double.parseDouble(pretField.getText());
-                    Laptop laptop = new Laptop(producator, model, pret, LocalDate.now());
-                    laptopRepo.createLaptop(laptop);
-                    resultArea.setText("Laptop adăugat cu succes!");
-
-                }
-            }
-        });
-        btnMonitor.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        btnTelefon.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        btnTelevizor.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-    }*/

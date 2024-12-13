@@ -336,13 +336,13 @@ public class LaptopInputPanel {
         btnCauta.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                StringBuilder query = new StringBuilder("SELECT * FROM calculatoare WHERE 1=1");
+                StringBuilder query = new StringBuilder("SELECT * FROM laptopuri WHERE 1=1");
 
                 if(!txtFldProducator.getText().isEmpty()){
-                    query.append("AND producator = ").append(txtFldProducator.getText());
+                    query.append(" AND producator = '").append(txtFldProducator.getText()).append("'");
                 }
                 if(!txtFldModel.getText().isEmpty()){
-                    query.append("AND model = '").append(txtFldModel.getText()).append("'");
+                    query.append(" AND model = '").append(txtFldModel.getText()).append("'");
                 }
                 if (!txtFldPret.getText().isEmpty()) {
                     query.append(" AND pret = '").append(Double.parseDouble(txtFldPret.getText())).append("'");
@@ -354,7 +354,7 @@ public class LaptopInputPanel {
                     query.append(" AND memorie_ram = '").append(txtFldMemorieRAM.getText()).append("'");
                 }
                 if(!txtFldDimensiuneDiagonala.getText().isEmpty()){
-                    query.append("AND dimensiune_diagonala = '").append(Integer.parseInt(txtFldDimensiuneDiagonala.getText())).append("'");
+                    query.append(" AND dimensiune_diagonala = '").append(Integer.parseInt(txtFldDimensiuneDiagonala.getText())).append("'");
                 }
                 if (!txtFldSistemOperare.getText().isEmpty()) {
                     query.append(" AND sistem_operare = '").append(txtFldSistemOperare.getText()).append("'");

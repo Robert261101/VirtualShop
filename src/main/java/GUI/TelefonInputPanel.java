@@ -332,10 +332,10 @@ public class TelefonInputPanel {
             StringBuilder query = new StringBuilder("SELECT * FROM telefoane WHERE 1=1");
 
             if(!txtFldProducator.getText().isEmpty()){
-                query.append("AND producator = ").append(txtFldProducator.getText());
+                query.append(" AND producator = '").append(txtFldProducator.getText()).append("'");
             }
             if(!txtFldModel.getText().isEmpty()){
-                query.append("AND model = ").append(txtFldModel.getText());
+                query.append(" AND model = ").append(txtFldModel.getText()).append("'");
             }
             if (!txtFldPret.getText().isEmpty()) {
                 query.append(" AND pret = '").append(Double.parseDouble(txtFldPret.getText())).append("'");
@@ -413,7 +413,7 @@ public class TelefonInputPanel {
 
     private void populateTableWithDatabaseData() {
         // Definește coloanele tabelului
-        String[] columnNames = {"ID", "Producator", "Model", "Pret", "Memorie interna", "Memorie RAM", "Sistem Operare", "Culoare"};
+        String[] columnNames = {"ID", "Producator", "Model", "Pret", "Dimensiune diagonala", "Memorie interna", "Memorie RAM", "Sistem Operare", "Culoare"};
         DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
 
         DatabaseConnection dbConnection = new DatabaseConnection(); // Creează instanța

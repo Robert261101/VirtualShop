@@ -320,7 +320,7 @@ public class CalculatorInputPanel {
 
 
                 if(!txtFldModel.getText().isEmpty()){
-                    query.append("AND model = ").append(txtFldModel.getText());
+                    query.append(" AND model = '").append(txtFldModel.getText()).append("'");
                 }
                 if (!txtFldPret.getText().isEmpty()) {
                     query.append(" AND pret = '").append(Double.parseDouble(txtFldPret.getText())).append("'");

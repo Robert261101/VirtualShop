@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI.MonitorInputPanel">
   <grid id="27dc6" binding="mainPanel" layout-manager="GridBagLayout">
     <constraints>
-      <xy x="20" y="20" width="1052" height="555"/>
+      <xy x="20" y="20" width="941" height="289"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -64,15 +64,6 @@
         </constraints>
         <properties>
           <text value="CAUTA"/>
-        </properties>
-      </component>
-      <component id="efeb2" class="javax.swing.JButton" binding="btnCancel">
-        <constraints>
-          <grid row="9" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-        <properties>
-          <text value="CANCEL"/>
         </properties>
       </component>
       <component id="286e0" class="javax.swing.JLabel" binding="labelID">
@@ -145,7 +136,9 @@
           </grid>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
-        <properties/>
+        <properties>
+          <text value=""/>
+        </properties>
       </component>
       <component id="55377" class="javax.swing.JTextField" binding="txtFldModel">
         <constraints>
@@ -182,6 +175,15 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties/>
+      </component>
+      <component id="efeb2" class="javax.swing.JButton" binding="btnCancel">
+        <constraints>
+          <grid row="9" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <text value="CANCEL"/>
+        </properties>
       </component>
     </children>
   </grid>
